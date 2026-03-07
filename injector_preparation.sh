@@ -138,4 +138,4 @@ fi
 
 
 
-#git add injector_preparation.sh && git commit -m "Update injector script with colored output" && git push
+#git add . && git commit -m "Update injector script with colored output" && git push

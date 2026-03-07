@@ -65,6 +65,7 @@ readinessProbe:
 service:
   name: secrets-webhook
   type: ClusterIP
+  
   externalPort: 443
   internalPort: 8443
   labels: {}
