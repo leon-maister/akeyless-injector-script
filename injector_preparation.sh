@@ -90,7 +90,7 @@ else
     echo "Secret $SECRET_NAME created successfully"
 fi
 
-echo "Secret created successfully"
+echo "Secret created successfully!"
 
 # --- Installing Akeyless Injector using Helm ---
 
