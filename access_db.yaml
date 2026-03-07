@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hello-secrets
+  template:
+    metadata:
+      labels:
+        app: hello-secrets
+      annotations:
+        akeyless/enabled: "true"
+    spec:
+      containers:
+      - name: jq
+        image: alpine:3.19
+        command:
+        - sh
+        - -c
+        - |
+          apk add --no-cache jq ca-certificates postgresql-client
+          update-ca-certificates
+
+          DB_USER=$(echo $DB_ACCESS | jq -r '.user_name')
+          DB_PASSWORD=$(echo $DB_ACCESS | jq -r '.password')
+
+          echo DB User: $DB_USER
+          echo DB_PASSWORD: $DB_PASSWORD
+
+          echo "Connecting to PostgreSQL..."
+
+          PGPASSWORD="$DB_PASSWORD" psql -U "$DB_USER" -d mydb -h my-postgres-postgresql.from-scratch.svc.cluster.local -c 'SELECT current_user, current_database(), now();'
+
+          echo "going to sleep..."
+          sleep 10000
+
+        env:
+        - name: DB_ACCESS
+          value: akeyless:/K8s/Citi_of_M/my_k8s_secret
