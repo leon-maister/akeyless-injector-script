@@ -12,7 +12,7 @@ This repository contains scripts and Kubernetes manifests to automate the deploy
 | values.yaml | **Configuration**: Helm chart values for the Akeyless Secrets Injection Webhook. |
 | env.yaml | **Example**: Deployment using Akeyless secrets as environment variables. |
 | access_db.yaml | **Example**: Advanced usage parsing JSON secrets for PostgreSQL authentication. |
-| .gitignore | **Maintenance**: Prevents tracking of local logs (\ Edwards pf.log\ ) and backup files. |
+| .gitignore | **Maintenance**: Prevents tracking of local logs (`pf.log`) and backup files. |
 
 ## 🛠️ Prerequisites
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
@@ -29,12 +29,6 @@ Before running the setup or building images, you must configure the following pa
 - **`ROLE_NAME`**: The Akeyless Role that will be associated with the Auth Method.
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
 - **`SECRET_VALUE`**: The initial value to be used if the secret does not exist.
-
-### 2. Helm & Environment Variables (`values.yaml`)
-- **`AKEYLESS_GATEWAY_URL`**: Your Akeyless Gateway address (e.g., `https://your-gw.akeyless.fans`).
-- **`ACCESS_ID`**: The Access ID of your **Kubernetes Auth Method**.
-- **`K8S_AUTH_CONFIG_NAME`**: The name of the K8s Auth configuration on the Gateway.
-- **`SECRET_NAME`**: The full path of the secret you want to retrieve.
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
