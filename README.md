@@ -30,6 +30,13 @@ Before running the setup or building images, you must configure the following pa
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
 - **`SECRET_VALUE`**: The initial value to be used if the secret does not exist.
 
+### 🚀 Run Preparation
+Once configured, execute the preparation script:
+```bash
+chmod +x injector_preparation.sh
+./injector_preparation.sh
+```
+
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
 
@@ -42,11 +49,7 @@ This project demonstrates two primary ways to consume secrets:
 ## 🚀 Quick Start
 1. Ensure you are logged into Akeyless CLI and have kubectl access.
 2. Open `injector_preparation.sh` and set your specific variables.
-3. Run the preparation script:
-```bash
-chmod +x injector_preparation.sh
-./injector_preparation.sh
-```
+3. Run the preparation script (as shown in Run Preparation section).
 4. Install the injector using Helm:
 ```bash
 helm install akeyless-secrets-injection akeyless/akeyless-secrets-injection -f values.yaml -n akeyless
