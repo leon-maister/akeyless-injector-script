@@ -61,6 +61,12 @@ Once the configuration is verified, install the injector using the following com
 helm install injector akeyless/akeyless-secrets-injection --namespace akeyless -f values.yaml
 ```
 
+### 🔍 Verify Installation
+After deployment, ensure the Injector is up and running:
+```bash
+kubectl get all -n akeyless
+```
+
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
 
