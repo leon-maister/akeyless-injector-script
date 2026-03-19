@@ -135,7 +135,6 @@ Follow these steps to demonstrate how the Akeyless Injector handles dynamic cred
    - **JSON Parsing at Runtime**: The pod receives `$DB_ACCESS` as a JSON string. We use `jq` to extract `user_name` and `password` dynamically before the application starts.
    - **Seamless Connectivity**: Standard tools (like `psql`) use these extracted values to connect, proving the injection is transparent and successful.
 
-   **Steps:**
    - Ensure that in the `access_db.yaml` file, the parameter `value:` points correctly to `akeyless:/Path/To/Json/Secret` and the annotation is `akeyless/enabled: "true"`.
    - Deploy (or force-replace) the application:
      ```bash
