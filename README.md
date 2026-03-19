@@ -19,18 +19,27 @@ Before starting this demo, you must have a functional **Akeyless Kubernetes Auth
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
 
 ## 🏗️ Setup Scope (injector_preparation.sh)
-The `injector_preparation.sh` script ensures all prerequisites are met before installation. **Before running, you must configure the following variables inside the script:**
+The `injector_preparation.sh` script ensures all prerequisites are met before installation.
 
-### 1. Akeyless Configuration Parameters
+### 1. Automation Logic
+- **Validation**: Verifies that the Auth Method exists, is of type `k8s`, and is correctly linked to the specified Role.
+- **Secret Provisioning**: Checks for the secret and creates it if it is missing.
+- **Infrastructure**: Prepares the `akeyless` namespace and initializes Helm configurations.
+
+## ⚙️ Configuration
+Before running the setup or building images, you must configure the following parameters:
+
+### 1. Akeyless Script Parameters (`injector_preparation.sh`)
 - **`AUTH_METHOD_NAME`**: The full path to your Kubernetes Authentication Method.
 - **`ROLE_NAME`**: The Akeyless Role that will be associated with the Auth Method.
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
 - **`SECRET_VALUE`**: The initial value to be used if the secret does not exist.
 
-### 2. Automation Logic
-- **Validation**: Verifies that the Auth Method exists, is of type `k8s`, and is correctly linked to the specified Role.
-- **Secret Provisioning**: Checks for the secret and creates it if it is missing.
-- **Infrastructure**: Prepares the `akeyless` namespace and initializes Helm configurations.
+### 2. Helm & Environment Variables (`values.yaml`)
+- **`AKEYLESS_GATEWAY_URL`**: Your Akeyless Gateway address (e.g., `https://your-gw.akeyless.fans`).
+- **`ACCESS_ID`**: The Access ID of your **Kubernetes Auth Method**.
+- **`K8S_AUTH_CONFIG_NAME`**: The name of the K8s Auth configuration on the Gateway.
+- **`SECRET_NAME`**: The full path of the secret you want to retrieve.
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
@@ -40,12 +49,6 @@ This project demonstrates two primary ways to consume secrets:
 
 ### 2. Dynamic DB Credentials (`access_db.yaml`)
 - Injects a JSON secret containing database credentials and uses `jq` for runtime parsing.
-
-## ⚙️ Configuration Variables
-Key settings defined in `values.yaml`:
-- **Access ID**: Your Akeyless Access ID.
-- **Gateway URL**: Your Akeyless Gateway API URL.
-- **Auth Config Name**: The name of the K8s Auth configuration.
 
 ## 🚀 Quick Start
 1. Ensure you are logged into Akeyless CLI and have kubectl access.
