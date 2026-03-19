@@ -18,7 +18,7 @@ This repository contains scripts and Kubernetes manifests to automate the deploy
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
 
-## 🏗️ Module Injector Preparation
+## 🏗️ Module Environment Preparation
 The purpose of this module is to handle all necessary preparations and resource validations required to successfully run and deploy the Akeyless Injector.
 
 ## ⚙️ Configuration
