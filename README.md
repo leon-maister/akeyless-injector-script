@@ -12,11 +12,14 @@ This repository contains scripts and Kubernetes manifests to automate the deploy
 | values.yaml | **Configuration**: Helm chart values for the Akeyless Secrets Injection Webhook. |
 | env.yaml | **Example**: Deployment using Akeyless secrets as environment variables. |
 | access_db.yaml | **Example**: Advanced usage parsing JSON secrets for PostgreSQL authentication. |
-| .gitignore | **Maintenance**: Prevents tracking of local logs (`pf.log`) and backup files. |
+| .gitignore | **Maintenance**: Prevents tracking of local logs (\ Edwards pf.log\ ) and backup files. |
 
 ## 🛠️ Prerequisites
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
+
+## 🏗️ Module Injector Preparation
+The purpose of this module is to handle all necessary preparations and resource validations required to successfully run and deploy the Akeyless Injector.
 
 ## ⚙️ Configuration
 Before running the setup or building images, you must configure the following parameters:
