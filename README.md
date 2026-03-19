@@ -18,28 +18,24 @@ This repository contains scripts and Kubernetes manifests to automate the deploy
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
 
-## 🏗️ Setup Scope (injector_preparation.sh)
-The `injector_preparation.sh` script ensures all prerequisites are met before installation.
-
-### 1. Automation Logic
-- **Validation**: Verifies that the Auth Method exists, is of type `k8s`, and is correctly linked to the specified Role.
-- **Secret Provisioning**: Checks for the secret and creates it if it is missing.
-- **Infrastructure**: Prepares the `akeyless` namespace and initializes Helm configurations.
+## 🏗️ Module Injector Preparation
+The purpose of this module is to handle all necessary preparations and resource validations required to successfully run and deploy the Akeyless Injector.
 
 ## ⚙️ Configuration
 Before running the setup or building images, you must configure the following parameters:
 
-### 1. Akeyless Script Parameters (`injector_preparation.sh`)
+### Akeyless Script Parameters (`injector_preparation.sh`)
 - **`AUTH_METHOD_NAME`**: The full path to your Kubernetes Authentication Method.
 - **`ROLE_NAME`**: The Akeyless Role that will be associated with the Auth Method.
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
 - **`SECRET_VALUE`**: The initial value to be used if the secret does not exist.
 
-### 2. Helm & Environment Variables (`values.yaml`)
-- **`AKEYLESS_GATEWAY_URL`**: Your Akeyless Gateway address (e.g., `https://your-gw.akeyless.fans`).
-- **`ACCESS_ID`**: The Access ID of your **Kubernetes Auth Method**.
-- **`K8S_AUTH_CONFIG_NAME`**: The name of the K8s Auth configuration on the Gateway.
-- **`SECRET_NAME`**: The full path of the secret you want to retrieve.
+## 🚀 Run Preparation
+Once configured, execute the preparation script:
+```bash
+chmod +x injector_preparation.sh
+./injector_preparation.sh
+```
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
@@ -53,11 +49,7 @@ This project demonstrates two primary ways to consume secrets:
 ## 🚀 Quick Start
 1. Ensure you are logged into Akeyless CLI and have kubectl access.
 2. Open `injector_preparation.sh` and set your specific variables.
-3. Run the preparation script:
-```bash
-chmod +x injector_preparation.sh
-./injector_preparation.sh
-```
+3. Run the preparation script (as shown in Run Preparation section).
 4. Install the injector using Helm:
 ```bash
 helm install akeyless-secrets-injection akeyless/akeyless-secrets-injection -f values.yaml -n akeyless
