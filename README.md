@@ -37,6 +37,9 @@ chmod +x injector_preparation.sh
 ./injector_preparation.sh
 ```
 
+### 🖥️ Execution Output
+**After running the script, you should see a confirmation of created/validated resources, and the `values.yaml` file will be automatically updated with the correct Access ID and paths for the Helm installation.**
+
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
 
