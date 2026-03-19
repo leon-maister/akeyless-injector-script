@@ -47,7 +47,7 @@ The script performs a systematic validation and setup of the environment:
 6. **Values File Management**: Checks for an existing `values.yaml`; if missing, it **generates a fresh one** directly from the Akeyless Helm chart. If it exists, it displays key configuration parameters to ensure consistency.
 
 ## 🚀 Module Injector Configuration and Start UP
-Configuration
+## ⚙️ Configuration
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
