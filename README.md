@@ -38,7 +38,26 @@ chmod +x injector_preparation.sh
 ```
 
 ### 🖥️ Execution Output
-**After running the script, you should see a confirmation of created/validated resources, and the `values.yaml` file will be automatically updated with the correct Access ID and paths for the Helm installation.**
+```text
+--- Checking Akeyless authentication method ---
+Auth method /K8s/k8s-auth-leon-test exists.
+Auth method /K8s/k8s-auth-leon-test is of type Kubernetes.
+
+--- Checking role existence ---
+Role /FullAccess exists.
+
+--- Checking role association with auth method ---
+Role /FullAccess is associated with auth method /K8s/k8s-auth-leon-test.
+
+--- Checking Akeyless secret ---
+Secret /K8s/InjectorDemo/InjectorSecret does not exist. Creating it...
+A new secret named /K8s/InjectorDemo/InjectorSecret was successfully created
+Secret /K8s/InjectorDemo/InjectorSecret created successfully.
+Secret check completed successfully.
+
+--- Checking Kubernetes namespace 'akeyless' ---
+Namespace 'akeyless' already exists. Skipping creation.
+```
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
