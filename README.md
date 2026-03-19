@@ -38,11 +38,12 @@ chmod +x injector_preparation.sh
 ```
 
 ### 🖥️ Execution Output
-The script performs a systematic validation of the environment:
+The script performs a systematic validation and setup of the environment:
 1. **Auth Method Verification**: Checks if the specified Kubernetes Auth Method exists and confirms its type.
 2. **Role & Association**: Ensures the required Role exists and is correctly linked to the Auth Method.
 3. **Secret Management**: Checks for the target secret; if it's missing, the script **automatically creates it** with the predefined value.
 4. **Namespace Setup**: Validates the existence of the `akeyless` namespace in Kubernetes, creating it if necessary.
+5. **Helm Repository Preparation**: Automatically adds the official Akeyless Helm repository and performs an update to ensure the latest chart versions are available.
 
 ## 🛠️ Usage Examples
 This project demonstrates two primary ways to consume secrets:
