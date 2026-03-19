@@ -100,6 +100,12 @@ helm install my-postgres bitnami/postgresql --set auth.postgresPassword=postgres
 > 1. **postgres** (Superuser) with password `postgrespass`.
 > 2. **myuser** (App User) with password `mypassword` and owner rights to the `mydb` database.
 
+#### 🔍 Verify DB Access
+You can verify the database is accessible by connecting to the pod:
+```bash
+kubectl exec -it my-postgres-postgresql-0 -- psql -U postgres
+```
+
 ---
 **Maintained by**: [leon-maister](https://github.com/leon-maister)
 
