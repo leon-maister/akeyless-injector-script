@@ -139,13 +139,13 @@ Follow these steps to demonstrate how the Akeyless Injector handles dynamic cred
 
 5. **Apply & Verify**: 
    - Ensure that in the `access_db.yaml` file, the parameter `value:` (under `DB_ACCESS`) points correctly to `akeyless:/Path/To/Json/Secret`.
-   - Deploy the application:
+   - Deploy (or force-replace) the application:
      ```bash
-     kubectl apply -f access_db.yaml
+     kubectl replace --force -f access_db.yaml
      ```
    - Check the logs to see the injector in action (parsing JSON and connecting to DB):
      ```bash
-     kubectl logs -l app=hello-secrets
+     kubectl logs -l app=hello-db-secret
      ```
 
 6. **Cleanup**: Kill the port-forward process when finished:
