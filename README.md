@@ -82,6 +82,20 @@ kubectl logs -l app=hello-secrets
 ```
 
 ### 2. Inject DB secret (complicated scenario)
+#### 🏗️ Preparation
+Before deploying the secret consumption example, prepare the database environment:
+
+**Add Helm Repository:**
+```bash
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+```
+
+**Install PostgreSQL:**
+```bash
+helm install my-postgres bitnami/postgresql --namespace from-scratch --create-namespace --set auth.postgresPassword=postgrespass --set auth.username=myuser --set auth.password=mypassword --set auth.database=mydb
+```
+
 - Injects a JSON secret containing database credentials and uses `jq` for runtime parsing.
 
 ---
