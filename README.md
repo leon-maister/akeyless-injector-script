@@ -24,7 +24,7 @@ The purpose of this module is to handle all necessary preparations and resource 
 ## ⚙️ Configuration
 Before running the setup or building images, you must configure the following parameters:
 
-### 1. Akeyless Script Parameters (`injector_preparation.sh`)
+### Akeyless Script Parameters (`injector_preparation.sh`)
 - **`AUTH_METHOD_NAME`**: The full path to your Kubernetes Authentication Method.
 - **`ROLE_NAME`**: The Akeyless Role that will be associated with the Auth Method.
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
