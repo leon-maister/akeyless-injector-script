@@ -30,7 +30,7 @@ Before running the setup or building images, you must configure the following pa
 - **`SECRET_NAME`**: The path where the test secret will be checked or created.
 - **`SECRET_VALUE`**: The initial value to be used if the secret does not exist.
 
-### 🚀 Run Preparation
+## 🚀 Run Preparation
 Once configured, execute the preparation script:
 ```bash
 chmod +x injector_preparation.sh
