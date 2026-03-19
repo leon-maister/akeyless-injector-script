@@ -59,6 +59,11 @@ After deployment, ensure the Injector is up and running:
 kubectl get all -n akeyless
 ```
 
+## 🛠️ How the Secret Injection Works
+1. **Mutation**: When you apply a YAML with the `akeyless/enabled: "true"` annotation, the Akeyless Webhook intercepts the request.
+2. **Sidecar & Init**: The webhook automatically injects an **init-container** and a **sidecar container** into your pod.
+3. **Transparent Injection**: The infrastructure handles authentication and secret fetching, providing them as standard environment variables. The application doesn't need Akeyless SDKs — it just reads the environment.
+
 ## 🛠️ Usage Examples
 
 ### 1. Secret Injection (basic scenario)
@@ -145,4 +150,4 @@ Follow these steps to demonstrate how the Akeyless Injector handles dynamic cred
 ---
 **Maintained by**: [leon-maister](https://github.com/leon-maister)
 
-<small><sub>/home/keyless/akeyless-injector-script</sub></small>
+<small><sub>/home/keyless/k8s/injector</sub></small>
