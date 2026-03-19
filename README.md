@@ -18,14 +18,6 @@ This repository contains scripts and Kubernetes manifests to automate the deploy
 Before starting this demo, you must have a functional **Akeyless Kubernetes Auth Method** configured in your Gateway. If you haven't set this up yet, you can use this automation tool:
 - **K8s Auth Setup Tool**: [Kubernetes-Authentication](https://github.com/leon-maister/Kubernetes-Authentication)
 
-## 🏗️ Setup Scope (injector_preparation.sh)
-The `injector_preparation.sh` script ensures all prerequisites are met before installation.
-
-### 1. Automation Logic
-- **Validation**: Verifies that the Auth Method exists, is of type `k8s`, and is correctly linked to the specified Role.
-- **Secret Provisioning**: Checks for the secret and creates it if it is missing.
-- **Infrastructure**: Prepares the `akeyless` namespace and initializes Helm configurations.
-
 ## ⚙️ Configuration
 Before running the setup or building images, you must configure the following parameters:
 
